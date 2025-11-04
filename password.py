@@ -11,6 +11,9 @@ def password(password: str):
     if not re.search(r"[A-Z]", password):
         errors.append("Password must contain at least one capital letter")
 
+    if not re.search(r"[^A-Za-z0-9]", password):
+        errors.append("Password must contain at least one special character")
+
     return {
         "is_valid": len(errors) == 0,
         "errors": errors
